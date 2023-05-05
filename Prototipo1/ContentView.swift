@@ -6,19 +6,20 @@
 //
 
 import SwiftUI
+// Sound
+import AVFoundation
 
+// Button style
 struct ButtonStyle: ViewModifier {
     func body(content: Content) -> some View {
         content
-            .frame(width: 300)
-            .padding(8)
-            .font(.custom("Bangers-Regular", size: 33))
-//            .background(Color("color4"))
-            .background(LinearGradient(gradient: Gradient(colors: [Color("color5"), Color("color1")]), startPoint: .bottom, endPoint: .top))
-            .foregroundColor(Color("color2"))
-            .shadow(color: .black, radius: 2)
-            .cornerRadius(13)
-            .shadow(color: .black,radius: 5)
+            .frame(width: 270)
+            .padding(12)
+            .font(.custom("Bangers-Regular", size: 30))
+            .background(Color("color5"))
+            .foregroundColor(Color("color4"))
+            .cornerRadius(12)
+            .shadow(color: .black, radius: 3)
     }
 }
 
@@ -29,42 +30,68 @@ extension View {
 }
 
 struct ContentView: View {
+    
+    // Sound
+    var player :  AVAudioPlayer!
+    @State var isMusicOn = false
+    init() {
+        isMusicOn ? playSound(sound: "top-gear", type: "mp3") : audioPlayer?.stop()
+    }
+    
     var body: some View {
         NavigationStack {
             ZStack {
-                LinearGradient(gradient: Gradient(colors: [Color("color1"), Color("color2")]), startPoint: .top, endPoint: .bottom).ignoresSafeArea()
+                LinearGradient(gradient: Gradient(colors: [Color("color1"), Color("color2")]), startPoint: .top, endPoint: .bottom)
+                    .ignoresSafeArea()
                 
                 Image("geek")
-                    .padding(.top, -450)
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: 530, height: 530)
+                    .padding(.top, -440)
                 
                 VStack {
                     Image("img")
                         .resizable()
                         .scaledToFit()
-                        .frame(width: 350, height: 350)
-                        .shadow(color: .black,radius: 15)
+                        .frame(width: 320, height: 320)
+                        .shadow(color: .black, radius: 10)
+                        .padding(.top, 90)
                     
-                    VStack(spacing: 25) {
-                    
+                    VStack(spacing: 20) {
                         NavigationLink {
-                            QuestionsView()
+                            // Binding connection betwen screens
+                            QuestionsView(isMusicOn: $isMusicOn)
                         } label: {
-                            Text("Iniciar Quiz")
+                            Text("I n i c i a r ")
                                 .buttonStyle()
                         }
-
-                        Button("Pontuação") {}
-                            .buttonStyle()
                         
                         NavigationLink {
-                            RulesView()
+                            AboutView(isMusicOn: $isMusicOn)
                         } label: {
-                            Text("Regras")
+                            Text("S o b r e ")
                                 .buttonStyle()
                         }
                     }
                 }
-                .padding(.top, 160)
+            }
+            
+            // Sound options (on/off)
+            .toolbar {
+                ToolbarItemGroup(placement: .navigationBarTrailing) {
+                    Button {
+                        if isMusicOn == true {
+                            audioPlayer?.pause()
+                        } else {
+                            audioPlayer?.play()
+                        }
+                        isMusicOn.toggle()
+                    } label: {
+                        Text("Music")
+                        Label("Play", systemImage: isMusicOn ? "pause.circle" : "play.circle")
+                    }
+                }
             }
         }
     }
