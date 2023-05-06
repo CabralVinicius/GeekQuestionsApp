@@ -18,10 +18,10 @@ struct Questions {
     
     init(question: String, alternatives : [Anwser]) {
         self.question = question
-        self.alternatives = alternatives
+        self.alternatives = alternatives.shuffled()
     }
     
-    func anwserCheck(_ anwserChoice: Int) {
+    /*func anwserCheck(_ anwserChoice: Int) {
         if alternatives[anwserChoice].correct{
             print("Você acertou a resposta é \(alternatives[anwserChoice].text)")
         } else {
@@ -29,17 +29,10 @@ struct Questions {
                 print("Você errou, a resposta é \(correctAnwser), sua resposta foi \(alternatives[anwserChoice].text)")
             }
         }
-    }
+    }*/
 }
 
 var questions: [Questions] = [
-    
-    Questions(question: "Qual a bebida preferida do Kel da série Kennan e Kel exibida entre 1996 e 2000 na Nickelodeon?",
-              alternatives: [Anwser(text: "Suco de uva ", correct: false),
-                             Anwser(text: "Cerveja ", correct: false),
-                             Anwser(text: "Agua tônica ", correct: false),
-                             Anwser(text: "Refrigerante de laranja ", correct: true),
-                             Anwser(text: "Suco de tomate ", correct: false)]),
     
     Questions(question: "Qual dos animes abaixo foi desenvolvido pelo estúdio Ghibli?",
               alternatives: [Anwser(text: "A Viagem de Chihiro ", correct: true),
@@ -47,6 +40,13 @@ var questions: [Questions] = [
                              Anwser(text: "Naruto "),
                              Anwser(text: "Death Note "),
                              Anwser(text: "Inu Yasha ")]),
+    
+    Questions(question: "Qual a bebida preferida do Kel da série Kennan e Kel exibida entre 1996 e 2000 na Nickelodeon?",
+              alternatives: [Anwser(text: "Suco de uva ", correct: false),
+                             Anwser(text: "Cerveja ", correct: false),
+                             Anwser(text: "Agua tônica ", correct: false),
+                             Anwser(text: "Refrigerante de laranja ", correct: true),
+                             Anwser(text: "Suco de tomate ", correct: false)]),
     
     Questions(question: "Quem é o autor de O Senhor dos Anéis?",
               alternatives: [Anwser(text: "Bram Stoker "),

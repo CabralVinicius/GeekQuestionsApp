@@ -9,39 +9,42 @@ import SwiftUI
 // Sound
 import AVFoundation
 
-// Button style
-struct ButtonStyleQuestions: ViewModifier {
-    func body(content: Content) -> some View {
-        content
-            .frame(width: 270, height: 45, alignment: .leading)
-            .padding()
-            .font(.custom("Bangers-Regular", size: 27))
-            .foregroundColor(Color("color4"))
-    }
-}
-
-extension View {
-    func buttonStyleQuestions() -> some View {
-        modifier(ButtonStyleQuestions())
-    }
-}
 
 struct QuestionsView: View {
     
     // Button flip animation
-    @State private var animationAmount = 0.0
-    @State private var flipIndex = -1
-    @State private var anwserColor = Color("color4")
+    @State private var animationAmount = 0.0//Quantidade de Animação
+    @State private var flipIndex = -1//Virar Index
+    @State private var anwserColor = Color("color4")//responder Cor
+    @State private var answered = false// respondidas
+    let shuffledQuestions = questions.shuffled()
+
     
     // // Binding connection between screens
     @Binding var isMusicOn: Bool
     
     // Questions logic
-    @State private var currentQuestionIndex = 0
-    @State private var score = 0
+    @State private var currentQuestionIndex = 0//Indice da pergunta atual
+    @State private var score = 0//pontuação
+    
+    @State private var disabledAnswerIndexes: [Int] = []//indices de respondidas
+    @State private var usedQuestionIndexes: [Int] = []//perguntas usadas
+    
+    private var randomQuestion: Questions {//Função de deixar randomico as alternativas
+        var randomIndex = Int.random(in: 0..<questions.count)
+        print(randomIndex)
+        while usedQuestionIndexes.contains(randomIndex) {
+            randomIndex = Int.random(in: 0..<questions.count)
+            print("Testando o \(randomIndex)")
+        }
+        usedQuestionIndexes.append(randomIndex)
+        return questions[randomIndex]
+    }
+    
+    
     
     private var currentQuestion: Questions {
-        questions[currentQuestionIndex]
+        shuffledQuestions[currentQuestionIndex]
     }
     
     private func checkAnswer(_ answerIndex: Int) -> Bool {
@@ -83,12 +86,15 @@ struct QuestionsView: View {
                             withAnimation {
                                 animationAmount += 360
                                 // Return to original color after flipping
-                                DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                                answered = true
+                                DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
+                                    answered = false
                                     anwserColor = Color("color1")
                                     nextQuestion()
                                 }
                             }
-                        }) {
+                        })
+                        {
                             // Flip just the tapped button
                             if flipIndex == index {
                                 Text("\(index+1)) \(currentQuestion.alternatives[index].text)")
@@ -104,13 +110,16 @@ struct QuestionsView: View {
                             }
                         }
                         .shadow(color: .white, radius: 3)
+                        .disabled(answered)
                     }
                     
                     // Different number color
                     (Text("Score: ")
-                        .foregroundColor(Color("color4")) +
-                    Text("\(score)")
+                        .foregroundColor(Color("color4"))
+                     +
+                     Text("\(score)")
                         .foregroundColor(.green))
+                    // custom font
                     .font(.custom("ChakraPetch-Medium", size: 33))
                     .frame(maxWidth: .infinity, alignment: .trailing)
                     .padding()
@@ -118,22 +127,22 @@ struct QuestionsView: View {
                 }
                 .padding(.top, 30)
             }
-            
-            // Sound options (on/off)
-            .toolbar {
-                  ToolbarItemGroup(placement: .navigationBarTrailing) {
-                        Button {
-                            if isMusicOn == true {
-                                audioPlayer?.pause()
-                            } else {
-                                audioPlayer?.play()
-                            }
-                            isMusicOn.toggle()
-                        } label: {
-                            Text("Music")
-                            Label("Play", systemImage: isMusicOn ? "pause.circle" : "play.circle")
-                        }
-                  }
+        }
+        
+        // Sound options (on/off)
+        .toolbar {
+            ToolbarItemGroup(placement: .navigationBarTrailing) {
+                Button {
+                    if isMusicOn == true {
+                        audioPlayer?.pause()
+                    } else {
+                        audioPlayer?.play()
+                    }
+                    isMusicOn.toggle()
+                } label: {
+                    Text("Music")
+                    Label("Play", systemImage: isMusicOn ? "pause.circle" : "play.circle")
+                }
             }
         }
     }
