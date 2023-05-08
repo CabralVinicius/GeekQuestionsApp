@@ -43,7 +43,7 @@ struct AboutView: View {
             .toolbar {
                   ToolbarItemGroup(placement: .navigationBarTrailing) {
                         Button {
-                            if isMusicOn == false {
+                            if isMusicOn == true {
                                 audioPlayer?.pause()
                             } else {
                                 audioPlayer?.play()
@@ -51,7 +51,8 @@ struct AboutView: View {
                             isMusicOn.toggle()
                         } label: {
                             Text("Music")
-                            Label("Play", systemImage: isMusicOn ? "pause.circle" : "play.circle")
+                                .font(.custom("ChakraPetch-Medium", size: 20))
+                            Label("Play", systemImage: isMusicOn ? "pause.circle.fill" : "play.circle.fill")
                         }
                    }
             }

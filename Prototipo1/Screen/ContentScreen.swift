@@ -6,35 +6,13 @@
 //
 
 import SwiftUI
-// Sound
-import AVFoundation
+import AVFoundation // Sound
 
-// Button style
-struct ButtonStyle: ViewModifier {
-    func body(content: Content) -> some View {
-        content
-            .frame(width: 270)
-            .padding(12)
-            .font(.custom("Bangers-Regular", size: 30))
-            .background(Color("color5"))
-            .foregroundColor(Color("color4"))
-            .cornerRadius(12)
-            .shadow(color: .black, radius: 3)
-    }
-}
-
-extension View {
-    func buttonStyle() -> some View {
-        modifier(ButtonStyle())
-    }
-}
-
-struct ContentView: View {
+struct ContentScreen: View {
     
-    // Sound
-    var player :  AVAudioPlayer!
-    @State var isMusicOn = false
-    init() {
+    var player :  AVAudioPlayer! // Sound
+    @State var isMusicOn = false // true
+    init() { // Sound initializer in background
         isMusicOn ? playSound(sound: "top-gear", type: "mp3") : audioPlayer?.stop()
     }
     
@@ -61,17 +39,17 @@ struct ContentView: View {
                     VStack(spacing: 20) {
                         NavigationLink {
                             // Binding connection betwen screens
-                            QuestionsView(isMusicOn: $isMusicOn)
+                            QuestionScreen(isMusicOn: $isMusicOn)
                         } label: {
                             Text("I n i c i a r ")
-                                .buttonStyle()
+                                .buttonStyleMain()
                         }
                         
                         NavigationLink {
                             AboutView(isMusicOn: $isMusicOn)
                         } label: {
                             Text("S o b r e ")
-                                .buttonStyle()
+                                .buttonStyleMain()
                         }
                     }
                 }
@@ -89,7 +67,8 @@ struct ContentView: View {
                         isMusicOn.toggle()
                     } label: {
                         Text("Music")
-                        Label("Play", systemImage: isMusicOn ? "pause.circle" : "play.circle")
+                            .font(.custom("ChakraPetch-Medium", size: 20))
+                        Label("Play", systemImage: isMusicOn ? "pause.circle.fill" : "play.circle.fill")
                     }
                 }
             }
@@ -99,6 +78,6 @@ struct ContentView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        ContentScreen()
     }
 }
