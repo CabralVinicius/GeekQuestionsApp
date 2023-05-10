@@ -6,13 +6,12 @@
 //
 
 import SwiftUI
-// Sound
-import AVFoundation
+import AVFoundation // Sound
 
-struct AboutView: View {
+struct AboutScreen: View {
     
-    // Binding connection betwen screens
-    @Binding var isMusicOn: Bool
+    // Sound
+    @Binding var isMusicOn: Bool // Binding connection betwen screens
     
     var body: some View {
         NavigationStack {
@@ -21,15 +20,15 @@ struct AboutView: View {
                 
                 VStack {
                     Text("Sobre ")
-                        .font(.custom("Bangers-Regular", size: 60))
+                        .font(.custom("Righteous-Regular", size: 60))
                         .foregroundColor(Color("color2"))
-                        .padding()
+                        .padding(.bottom, 10)
                         
                     Text("Teste seu conhecimento sobre o universo geek através de um Quiz com diversas perguntas do mundo dos games, filmes, series, animes e muito mais.")
                         .font(.custom("ChakraPetch-Medium", size: 22))
                         .multilineTextAlignment(.center)
                     
-                    Image("cat")
+                    Image("catAbout")
                         .resizable()
                         .scaledToFit()
                         .frame(width: 300, height: 300)
@@ -62,7 +61,6 @@ struct AboutView: View {
 
 struct About_Previews: PreviewProvider {
     static var previews: some View {
-        // Binding connection
-        AboutView(isMusicOn: .constant(true))
+        AboutScreen(isMusicOn: .constant(true))
     }
 }
