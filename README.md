@@ -1,6 +1,8 @@
 # Geek Questions
-<strong>GeekQuestions</strong> foi um aplicativo desenvolvido juntamente com meu amigo Vinicius Cabral, para que o usuário possa se divertir enquanto responde e testa seus conhecimentos sobre o universo geek em geral.
-<br>No desenvolvimento desse projeto, utilizamos a metodologia CBL, que nos proporcionou um ótimo engajamento durante o trabalho, e fez com que nossa motivação continuasse sempre alta.
+<strong>GeekQuestions</strong> Aplicativo desenvolvido por Lucas Real e Vinicius Cabral, trata-se de um pequeno jogo, onde o usuário pode se divertir ao testar seus conhecimentos sobre o universo geek em geral.
+<br>No desenvolvimento deste projeto, foi utilizada a metodologia CBL, que proporcionou um ótimo engajamento durante o trabalho, e manteve a motivação sempre alta.
+<br>Importante destacar o ponto forte da construção deste projeto, que foi a COMUNICACÃO, esta foi de suma importancia para este desenvovimento e resultado satisfatório. Todos os dias tinhamos feedbacks contendo sempre as ultimas alterações e problemas localizados.
+
 
 ## Tecnologias utilizadas
 - Swift
