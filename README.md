@@ -9,7 +9,7 @@
 - SwifUI
 
 ## Preview
-![alt text](https://github.com/lucasreald/GeekQuestionsApp/blob/main/appImg/01.png?raw=true)
+![alt text]([https://github.com/lucasreald/GeekQuestionsApp/blob/main/appImg/01.png?raw=true](https://postimg.cc/6TN9QBzn))
 ![alt text](https://github.com/lucasreald/GeekQuestionsApp/blob/main/appImg/02.png?raw=true)
 ![alt text](https://github.com/lucasreald/GeekQuestionsApp/blob/main/appImg/03.png?raw=true)
 ![alt text](https://github.com/lucasreald/GeekQuestionsApp/blob/main/appImg/04.png?raw=true)
