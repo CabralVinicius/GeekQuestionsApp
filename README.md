@@ -11,4 +11,4 @@
 ## Preview
 ![alt text](https://i.postimg.cc/7P5bm62s/Captura-de-Tela-2024-02-12-a-s-14-43-44.png)
 ![alt text](https://i.postimg.cc/G22n34CZ/Captura-de-Tela-2024-02-12-a-s-14-46-58.png)
-![alt text]([![Captura-de-Tela-2024-02-12-a-s-14-46-23.png](https://i.postimg.cc/KzHS1mc4/Captura-de-Tela-2024-02-12-a-s-14-46-23.png)](https://postimg.cc/VrnHTQCc))
+![alt text](https://i.postimg.cc/KzHS1mc4/Captura-de-Tela-2024-02-12-a-s-14-46-23.png)
