@@ -9,7 +9,7 @@
 - SwifUI
 
 ## Preview
-![alt text]([![Captura-de-Tela-2024-02-12-a-s-14-43-44.png](https://i.postimg.cc/7P5bm62s/Captura-de-Tela-2024-02-12-a-s-14-43-44.png)](https://postimg.cc/6TN9QBzn))
+![alt text]([(https://i.postimg.cc/7P5bm62s/Captura-de-Tela-2024-02-12-a-s-14-43-44.png)](https://postimg.cc/6TN9QBzn))
 ![alt text](https://github.com/lucasreald/GeekQuestionsApp/blob/main/appImg/02.png?raw=true)
 ![alt text](https://github.com/lucasreald/GeekQuestionsApp/blob/main/appImg/03.png?raw=true)
 ![alt text](https://github.com/lucasreald/GeekQuestionsApp/blob/main/appImg/04.png?raw=true)
