@@ -10,7 +10,7 @@
 
 ## Preview
 ![alt text](https://i.postimg.cc/7P5bm62s/Captura-de-Tela-2024-02-12-a-s-14-43-44.png)
-![alt text](https://github.com/lucasreald/GeekQuestionsApp/blob/main/appImg/02.png?raw=true)
+![alt text](https://i.postimg.cc/G22n34CZ/Captura-de-Tela-2024-02-12-a-s-14-46-58.png)
 ![alt text](https://github.com/lucasreald/GeekQuestionsApp/blob/main/appImg/03.png?raw=true)
 ![alt text](https://github.com/lucasreald/GeekQuestionsApp/blob/main/appImg/04.png?raw=true)
 ![alt text](https://github.com/lucasreald/GeekQuestionsApp/blob/main/appImg/05.png?raw=true)
